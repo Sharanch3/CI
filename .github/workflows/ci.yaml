@@ -1,0 +1,36 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+  
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: clone the repo
+        uses: actions/checkout@v4
+
+
+      - name: install python 
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: setup uv
+        uses: astral-sh/setup-uv
+
+      - name: install flake8
+        run: uv pip install flake8
+
+      - name: run flake8
+        run: uv run flake8 app.py
+    
+
+
