@@ -26,8 +26,8 @@ jobs:
       - name: setup uv
         uses: astral-sh/setup-uv@v5
 
-      - name: install flake8
-        run: uv pip install flake8
+      - name: install dependencies
+        run: uv sync --group dev
 
       - name: run flake8
         run: uv run flake8 app.py
