@@ -24,7 +24,7 @@ jobs:
           python-version: '3.13'
 
       - name: setup uv
-        uses: astral-sh/setup-uv
+        uses: astral-sh/setup-uv@v5
 
       - name: install flake8
         run: uv pip install flake8
